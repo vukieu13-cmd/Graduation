@@ -1,3 +1,7 @@
+/* 1. Tải font Great Vibes từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* ... các thiết lập CSS khác ... */
 /* ====================================================================== */
 /* 1. THIẾT LẬP CHUNG, MÀU CHỦ ĐẠO (HỒNG) VÀ CĂN GIỮA */
 /* ====================================================================== */
@@ -130,7 +134,30 @@ footer {
     display: block; 
     min-height: auto; 
 }
+/* Thêm font Lora từ Google Fonts */
+header h1 {
+    margin: 0;
+    /* 2. Áp dụng font Great Vibes */
+    font-family: 'Great Vibes', cursive; 
+    
+    /* Thiết lập cỡ chữ lớn hơn để font thư pháp đẹp hơn */
+    font-size: 5em; /* Kích thước lớn cho tiêu đề nổi bật */
+    line-height: 1.2;
+    
+    /* Thiết lập màu sắc nổi bật */
+    color: #f0d5d5; /* Ví dụ: Màu đỏ đô sang trọng */
+    
+    /* Thêm chút bóng đổ để chữ nổi bật trên nền */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9); 
+    letter-spacing: 5px
+}
 
+/* Tùy chỉnh cho màn hình nhỏ (Responsive Design) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 4em; /* Giảm kích thước trên di động để chữ không bị tràn */
+    }
+}
 .gallery-container {
     display: grid;
     /* Bố cục 3 cột cố định trên màn hình lớn */
