@@ -825,47 +825,47 @@ header h1 {
 /* ================================================= */
 /* 4. RESPONSIVE (Cho màn hình nhỏ/Điện thoại) */
 /* ================================================= */
-
 @media screen and (max-width: 768px) {
     
-    /* 1. Căn chỉnh đường thẳng Timeline */
-    .timeline-container::after {
-        left: 30px; /* Chuyển đường thẳng sang lề trái */
+    /* === BỔ SUNG ĐỂ NGĂN TRÀN (OVERFLOW PREVENTION) === */
+    
+    /* Đảm bảo không có scrollbar ngang trên body */
+    body {
+        overflow-x: hidden; 
+    }
+    
+    /* Đảm bảo container chính Timeline không gây tràn */
+    .timeline-container {
+        width: 100%;
+        padding: 20px 0; /* Xóa padding ngang nếu có */
+        margin: 0 auto;
     }
 
-    /* 2. Căn chỉnh khối nội dung Timeline */
+    /* 1. Căn chỉnh khối nội dung Timeline */
     .timeline-item {
-        width: 100%; /* Chiếm toàn bộ chiều rộng */
-        padding-left: 60px; /* Thụt lề để bắt đầu sau đường thẳng */
-        padding-right: 15px; /* Giữ khoảng cách với lề phải */
-        left: 0 !important; /* Đảm bảo nó không bị đẩy sang 50% */
-        margin-bottom: 30px; /* Tăng khoảng cách giữa các mốc */
-    }
-
-    /* 3. Căn chỉnh dấu chấm tròn */
-    .timeline-item.left .timeline-dot,
-    .timeline-item.right .timeline-dot {
-        left: 21px; /* Đặt dấu chấm trên đường thẳng mới (cách lề trái 30px - 9px = 21px) */
-        right: auto !important; /* Hủy bỏ căn chỉnh 'right' cũ */
+        width: 100%; 
+        /* Giảm padding ngang tổng thể để đảm bảo nội dung fit */
+        padding-left: 60px; 
+        padding-right: 15px; 
+        left: 0 !important; 
+        margin-bottom: 30px; 
     }
     
-    /* 4. Tối ưu hóa Tiêu đề và nội dung */
+    /* 2. Đảm bảo Ảnh luôn co giãn theo chiều rộng khối nội dung */
+    .photo-placeholder img {
+        max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của khối cha */
+        height: auto;
+    }
+    
+    /* 3. Tối ưu hóa Tiêu đề và nội dung */
+    header {
+        padding: 0 10px; /* Thêm padding nhẹ cho header để chữ không chạm mép */
+    }
+    
     header h1 {
-        font-size: 2.2em; /* Giảm cỡ chữ tiêu đề chính */
+        font-size: 2.2em;
+        word-break: break-word; /* Cho phép từ quá dài bị ngắt */
     }
-    header p {
-        font-size: 1em; /* Giảm cỡ chữ phụ */
-    }
+    /* ... (giữ các quy tắc responsive khác đã có) ... */
     
-    .timeline-content h2 {
-        font-size: 1.2em; /* Giảm cỡ chữ tiêu đề mốc thời gian */
-    }
-    
-    /* 5. Căn chỉnh dòng chữ mở đầu (trên di động) */
-    .intro-story {
-        text-align: center; 
-        margin: 30px auto; 
-        max-width: 90%; 
-        font-size: 0.9em; /* Giảm nhẹ cỡ chữ cho intro */
-    }
 }
