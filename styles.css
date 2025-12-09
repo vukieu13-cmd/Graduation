@@ -496,3 +496,329 @@ header h1 {
     from, to { border-color: transparent }
     50% { border-color: #FF69B4; } /* Màu hồng của con trỏ */
 }
+/* === ĐỊNH DẠNG NÚT ĐỌC THƯ (READ MORE BUTTON) === */
+/* === ĐỊNH DẠNG NÚT ĐỌC THƯ (READ MORE BUTTON) CAO CẤP HƠN === */
+.read-more-button {
+    /* Kích thước lớn hơn và chữ nổi bật */
+    background-color: #E91E63; /* Màu hồng chủ đạo */
+    color: white;
+    border: none;
+    
+    /* Tăng kích thước padding để nút to hơn */
+    padding: 12px 28px; 
+    margin-top: 20px;
+    
+    cursor: pointer;
+    border-radius: 30px; /* Bo góc nhiều hơn */
+    
+    /* Tăng cỡ chữ và độ đậm */
+    font-size: 1.1em; 
+    font-weight: 700; 
+    text-transform: uppercase; /* Chữ hoa */
+    
+    /* Hiệu ứng chuyển động mượt mà */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    
+    /* Đổ bóng nhẹ ban đầu */
+    box-shadow: 0 6px 10px rgba(233, 30, 99, 0.3); /* Bóng đổ từ màu hồng */
+}
+
+/* Hiệu ứng khi di chuột (Hover Effect) */
+.read-more-button:hover {
+    background-color: #C2185B; /* Tối hơn một chút */
+    transform: translateY(-3px); /* Nút "nhảy" nhẹ lên */
+    
+    /* Bóng đổ rõ hơn khi hover */
+    box-shadow: 0 10px 15px rgba(233, 30, 99, 0.4); 
+}
+
+/* Định dạng cho nút khi ở trạng thái "Thu Gọn" (đã mở) */
+.read-more-button[style*="background-color: rgb(76, 175, 80)"] { 
+    box-shadow: 0 6px 10px rgba(76, 175, 80, 0.3); /* Bóng đổ màu xanh */
+}
+
+.read-more-button[style*="background-color: rgb(76, 175, 80)"]:hover {
+    background-color: #388E3C !important; /* Xanh đậm hơn */
+    box-shadow: 0 10px 15px rgba(76, 175, 80, 0.4); 
+}
+.messages-container {
+    /* (Quy tắc cho container của tất cả các thư - giữ nguyên) */
+    display: grid; 
+    /* ... */
+}
+
+.message-card {
+    /* 1. Thiết lập Flex container cho thẻ thư */
+    display: flex; 
+    
+    /* 2. Sắp xếp các mục theo chiều dọc (cần thiết cho văn bản) */
+    flex-direction: column; 
+    
+    /* 3. CĂN CHỈNH TẤT CẢ NỘI DUNG VỀ GIỮA THEO CHIỀU NGANG */
+    align-items: center; 
+    
+    /* ... các thuộc tính padding, border, box-shadow cũ của bạn ... */
+    
+    text-align: justify; /* Đảm bảo văn bản bên trong cũng căn giữa (nếu cần) */
+}
+/* ==================================== */
+/* ĐỊNH DẠNG TIMELINE CHO page4.html */
+/* ==================================== */
+
+.timeline-container {
+    max-width: 1000px;
+    margin: 0 0;
+    position: relative;
+    padding: 0 0;
+    align-items: center;
+}
+/* === ĐỊNH DẠNG KHỐI MỞ ĐẦU TIMELINE === */
+.intro-story {
+    /* Quan trọng: Thiết lập căn chỉnh văn bản */
+    text-align: justify; 
+    
+    /* Thêm khoảng cách nếu cần */
+   
+    margin: 20px 0 0px 2%;
+    
+    /* Đảm bảo chiều rộng đủ để căn giữa */
+    max-width: 100%; 
+}
+
+/* Định dạng chữ mở đầu */
+.intro-story p {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #333;
+    line-height: 1;
+    margin: 0px 0 0px 0%;
+    
+    /* Đảm bảo chiều rộng đủ để căn giữa */
+    max-width: 100%; 
+    font-style: italic; /* Thêm chút bay bổng */
+    text-align: center;
+}
+.header-script-font {
+    /* ... các thuộc tính khác ... */
+    
+    /* === GIẢM CỠ CHỮ TẠI ĐÂY === */
+    font-size: 0.7em; /* Đặt lại cỡ chữ mong muốn */
+    
+    /* ... các thuộc tính khác ... */
+}
+
+/* Đường thẳng dọc chính giữa */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #E91E63; /* Màu hồng chủ đạo */
+    top: 300px;
+    bottom: 300PX;
+    left: 50%;
+    margin-left: 50px;
+    
+
+}
+
+/* Khối nội dung Timeline */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+/* Dấu chấm tròn trên đường thẳng */
+.timeline-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 3px solid #C2185B; 
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Các mục bên trái */
+.timeline-item.left {
+    left: 0;
+    padding-right: 60px; /* Thêm khoảng trống */
+}
+
+/* Các mục bên phải */
+.timeline-item.right {
+    left: 50%;
+    padding-left: 60px;
+}
+
+/* Căn chỉnh dấu chấm */
+.timeline-item.left .timeline-dot {
+    right: -9px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -9px;
+}
+
+/* Khối chứa nội dung */
+.timeline-content {
+    background-color: #fce4ec; /* Màu nền nhẹ nhàng */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h2 {
+    color: #C2185B;
+    margin-top: 0;
+}
+
+.timeline-content .date {
+    display: block;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media screen and (max-width: 768px) {
+    .timeline-container::after {
+        left: 30px; /* Chuyển đường thẳng sang trái */
+    }
+
+    .timeline-item {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        padding-left: 60px; /* Nội dung bắt đầu từ bên phải đường thẳng */
+        padding-right: 10px;
+        left: 0 !important;
+    }
+
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 21px; /* Căn chỉnh dấu chấm sang trái */
+    }
+}
+/* Thiết lập hoạt ảnh cho nền body */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient nhẹ nhàng, chuyển động mờ */
+    background: radial-gradient(circle at top left, rgba(233, 30, 99, 0.1), transparent 50%),
+                radial-gradient(circle at bottom right, rgba(139, 0, 0, 0.1), transparent 50%);
+    /* Tốc độ hoạt ảnh chậm, tạo cảm giác mộng mơ */
+    animation: gentle-move 30s infinite alternate; 
+    z-index: -1; /* Đảm bảo nó nằm dưới nội dung */
+}
+
+/* Định nghĩa hoạt ảnh chuyển động nhẹ nhàng */
+@keyframes gentle-move {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+/* Thêm hoạt ảnh cho tiêu đề (ví dụ: trên page4.html) */
+header h1 {
+    /* ... các thuộc tính font-family, font-size cũ ... */
+    
+    opacity: 0; /* Bắt đầu ẩn */
+    animation: fade-in-slide 1.5s ease-out forwards; /* Tên hoạt ảnh, thời gian, kiểu chuyển động */
+    animation-delay: 0.5s; /* Chờ 0.5 giây rồi mới chạy */
+}
+
+/* Định nghĩa hoạt ảnh Fade-in và trượt nhẹ */
+@keyframes fade-in-slide {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Bắt đầu từ vị trí thấp hơn 20px */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Kết thúc ở vị trí ban đầu */
+    }
+}
+.decoration-icon {
+    display: inline-block;
+    animation: pulse 2s infinite ease-in-out; /* Hoạt ảnh nhịp đập */
+    margin-left: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Phóng to 10% ở giữa */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* Hiệu ứng trượt vào từ bên trái */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hiệu ứng trượt vào từ bên phải */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Ứng dụng cho Timeline (Cần JavaScript để kích hoạt khi cuộn) */
+.timeline-item.animated.left .timeline-content {
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.timeline-item.animated.right .timeline-content {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+<script>
+    // Kiểm tra xem các phần tử có nằm trong tầm nhìn (viewport) không
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Nếu phần tử xuất hiện, thêm class 'animated' để kích hoạt CSS Animation
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target); // Ngừng theo dõi sau khi đã hoạt ảnh
+            }
+        });
+    }, {
+        threshold: 0.2 // Kích hoạt khi 20% phần tử hiển thị
+    });
+
+    timelineItems.forEach(item => {
+        observer.observe(item);
+    });
+</script>
