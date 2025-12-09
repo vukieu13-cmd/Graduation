@@ -822,3 +822,50 @@ header h1 {
         observer.observe(item);
     });
 </script>
+/* ================================================= */
+/* 4. RESPONSIVE (Cho màn hình nhỏ/Điện thoại) */
+/* ================================================= */
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. Căn chỉnh đường thẳng Timeline */
+    .timeline-container::after {
+        left: 30px; /* Chuyển đường thẳng sang lề trái */
+    }
+
+    /* 2. Căn chỉnh khối nội dung Timeline */
+    .timeline-item {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        padding-left: 60px; /* Thụt lề để bắt đầu sau đường thẳng */
+        padding-right: 15px; /* Giữ khoảng cách với lề phải */
+        left: 0 !important; /* Đảm bảo nó không bị đẩy sang 50% */
+        margin-bottom: 30px; /* Tăng khoảng cách giữa các mốc */
+    }
+
+    /* 3. Căn chỉnh dấu chấm tròn */
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 21px; /* Đặt dấu chấm trên đường thẳng mới (cách lề trái 30px - 9px = 21px) */
+        right: auto !important; /* Hủy bỏ căn chỉnh 'right' cũ */
+    }
+    
+    /* 4. Tối ưu hóa Tiêu đề và nội dung */
+    header h1 {
+        font-size: 2.2em; /* Giảm cỡ chữ tiêu đề chính */
+    }
+    header p {
+        font-size: 1em; /* Giảm cỡ chữ phụ */
+    }
+    
+    .timeline-content h2 {
+        font-size: 1.2em; /* Giảm cỡ chữ tiêu đề mốc thời gian */
+    }
+    
+    /* 5. Căn chỉnh dòng chữ mở đầu (trên di động) */
+    .intro-story {
+        text-align: center; 
+        margin: 30px auto; 
+        max-width: 90%; 
+        font-size: 0.9em; /* Giảm nhẹ cỡ chữ cho intro */
+    }
+}
