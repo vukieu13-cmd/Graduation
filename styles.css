@@ -372,7 +372,7 @@ header h1 {
     
 }
 .access-lock {
-    padding: 50px 30px;
+    padding: 30px 30px;
     background-color: white;
     border-radius: 15px;
     
@@ -877,3 +877,4 @@ header h1 {
         font-size: 2em;
     }
 }
+
