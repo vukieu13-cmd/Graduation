@@ -141,7 +141,7 @@ header h1 {
     font-family: 'Great Vibes', cursive; 
     
     /* Thiết lập cỡ chữ lớn hơn để font thư pháp đẹp hơn */
-    font-size: 5em; /* Kích thước lớn cho tiêu đề nổi bật */
+    font-size: 6em; /* Kích thước lớn cho tiêu đề nổi bật */
     line-height: 1.2;
     
     /* Thiết lập màu sắc nổi bật */
@@ -860,6 +860,7 @@ header h1 {
         font-size: 2em;
     }
 }
+
 
 
 
