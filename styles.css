@@ -230,11 +230,11 @@ header h1 {
 
 .back-to-home-button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 10px;
     background-color: #E91E63; 
     color: white; 
     text-decoration: none;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 700;
     border-radius: 50px; 
     transition: background-color 0.3s, transform 0.3s;
@@ -251,11 +251,11 @@ header h1 {
 .next-page-button {
     /* Sử dụng định dạng tương tự nút quay lại để tạo sự đồng bộ */
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: #FFC0CB; /* Hồng phấn */
     color: #E91E63; /* Chữ hồng đậm */
     text-decoration: none;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 700;
     border-radius: 50px; 
     transition: background-color 0.3s, transform 0.3s;
