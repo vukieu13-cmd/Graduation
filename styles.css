@@ -12,7 +12,7 @@ body {
     background: linear-gradient(to right, #FFEBEE, #F8BBD0); /* Nền hồng nhẹ chuyển sắc */
     color: #444;
     text-align: center; 
-    font-size: 15px;
+    font-size: 20px;
     
     /* Căn giữa tuyệt đối cho Trang Chào Mừng (index.html) */
     display: flex; 
@@ -234,7 +234,7 @@ header h1 {
     background-color: #E91E63; 
     color: white; 
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.4em;
     font-weight: 700;
     border-radius: 50px; 
     transition: background-color 0.3s, transform 0.3s;
@@ -251,7 +251,7 @@ header h1 {
 .next-page-button {
     /* Sử dụng định dạng tương tự nút quay lại để tạo sự đồng bộ */
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 20px;
     background-color: #FFC0CB; /* Hồng phấn */
     color: #E91E63; /* Chữ hồng đậm */
     text-decoration: none;
@@ -802,71 +802,78 @@ header h1 {
 .timeline-item.animated.right .timeline-content {
     animation: slideInRight 0.8s ease-out forwards;
 }
-<script>
-    // Kiểm tra xem các phần tử có nằm trong tầm nhìn (viewport) không
-    const timelineItems = document.querySelectorAll('.timeline-item');
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Nếu phần tử xuất hiện, thêm class 'animated' để kích hoạt CSS Animation
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target); // Ngừng theo dõi sau khi đã hoạt ảnh
-            }
-        });
-    }, {
-        threshold: 0.2 // Kích hoạt khi 20% phần tử hiển thị
-    });
-
-    timelineItems.forEach(item => {
-        observer.observe(item);
-    });
-</script>
 /* ================================================= */
 /* 4. RESPONSIVE (Cho màn hình nhỏ/Điện thoại) */
 /* ================================================= */
+/* ================================================= */
+/* 4. RESPONSIVE (Cho màn hình nhỏ/Điện thoại) */
+/* ================================================= */
+
 @media screen and (max-width: 768px) {
     
-    /* === BỔ SUNG ĐỂ NGĂN TRÀN (OVERFLOW PREVENTION) === */
-    
-    /* Đảm bảo không có scrollbar ngang trên body */
+    /* 1. NGĂN TRÀN & CĂN CHỈNH TỔNG THỂ */
     body {
+        /* Quan trọng: Ẩn thanh cuộn ngang nếu có lỗi nhỏ */
         overflow-x: hidden; 
+        padding: 0;
     }
     
-    /* Đảm bảo container chính Timeline không gây tràn */
     .timeline-container {
         width: 100%;
-        padding: 20px 0; /* Xóa padding ngang nếu có */
-        margin: 0 auto;
+        margin: 0; /* Loại bỏ margin auto */
+        padding: 0 10px; /* Thêm padding ngang nhỏ cho container chính */
     }
 
-    /* 1. Căn chỉnh khối nội dung Timeline */
+    /* Bỏ đường thẳng dọc ở giữa (vì nó gây khó khăn cho việc căn chỉnh 1 cột) */
+    .timeline-container::after {
+        left: 20px; /* Di chuyển đường thẳng sang lề trái */
+        width: 2px; /* Mảnh hơn */
+    }
+    
+    /* 2. CĂN CHỈNH KHỐI TIMELINE (100% WIDTH) */
+
     .timeline-item {
         width: 100%; 
-        /* Giảm padding ngang tổng thể để đảm bảo nội dung fit */
-        padding-left: 60px; 
-        padding-right: 15px; 
-        left: 0 !important; 
-        margin-bottom: 30px; 
+        left: 0 !important; /* Buộc nó nằm ở lề trái */
+        padding: 0;
+        margin: 0;
+        margin-bottom: 25px;
+    }
+
+    /* 3. CĂN CHỈNH NỘI DUNG (CONTENT) */
+    
+    .timeline-content {
+        padding: 15px; /* Giảm padding cho khối nội dung */
+        /* Sử dụng margin-left để đẩy nội dung ra xa đường thẳng */
+        margin-left: 45px; 
     }
     
-    /* 2. Đảm bảo Ảnh luôn co giãn theo chiều rộng khối nội dung */
+    /* 4. CĂN CHỈNH DẤU CHẤM */
+
+    .timeline-dot {
+        /* Đặt dấu chấm trên đường thẳng mới (cách lề trái 20px - 9px = 11px) */
+        left: 11px !important; 
+        right: auto !important; /* Hủy bỏ căn chỉnh 'right' cũ */
+    }
+    
+    /* 5. CĂN CHỈNH INTRO STORY */
+
+    .intro-story {
+        /* Căn chỉnh intro story theo lề trái để đồng bộ */
+        text-align: left; 
+        margin: 20px 0 20px 45px; /* Cùng margin-left với nội dung timeline */
+        max-width: 85%; 
+    }
+    
+    /* 6. TỐI ƯU HÓA ẢNH & CHỮ */
+    
     .photo-placeholder img {
-        max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của khối cha */
+        max-width: 100%; /* Buộc ảnh không tràn */
         height: auto;
     }
-    
-    /* 3. Tối ưu hóa Tiêu đề và nội dung */
-    header {
-        padding: 0 10px; /* Thêm padding nhẹ cho header để chữ không chạm mép */
-    }
-    
-    header h1 {
-        font-size: 2.2em;
-        word-break: break-word; /* Cho phép từ quá dài bị ngắt */
-    }
-    /* ... (giữ các quy tắc responsive khác đã có) ... */
-    
 
+    header h1 {
+        font-size: 2em;
+    }
 }
