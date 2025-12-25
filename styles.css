@@ -234,7 +234,7 @@ header h1 {
     background-color: #E91E63; 
     color: white; 
     text-decoration: none;
-    font-size: 1.4em;
+    font-size: 1.1em;
     font-weight: 700;
     border-radius: 50px; 
     transition: background-color 0.3s, transform 0.3s;
@@ -868,4 +868,5 @@ header h1 {
     }
     /* ... (giữ các quy tắc responsive khác đã có) ... */
     
+
 }
